@@ -13,6 +13,10 @@
 		22B5B1722820787B0070B9FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B5B1702820787B0070B9FF /* Main.storyboard */; };
 		22B5B1742820787E0070B9FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B5B1732820787E0070B9FF /* Assets.xcassets */; };
 		22B5B1772820787E0070B9FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B5B1752820787E0070B9FF /* LaunchScreen.storyboard */; };
+		22F2F396282458A100FD6553 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2F395282458A100FD6553 /* FriendsTableViewController.swift */; };
+		22F2F39828246C9900FD6553 /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2F39728246C9900FD6553 /* ImagesCollectionViewController.swift */; };
+		22F2F39A282470ED00FD6553 /* CommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2F399282470ED00FD6553 /* CommunitiesTableViewController.swift */; };
+		22F2F39C2824710F00FD6553 /* GlobalCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2F39B2824710F00FD6553 /* GlobalCommunitiesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		22B5B1732820787E0070B9FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22B5B1762820787E0070B9FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22B5B1782820787E0070B9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F2F395282458A100FD6553 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		22F2F39728246C9900FD6553 /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		22F2F399282470ED00FD6553 /* CommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewController.swift; sourceTree = "<group>"; };
+		22F2F39B2824710F00FD6553 /* GlobalCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCommunitiesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 				22B5B16A2820787B0070B9FF /* AppDelegate.swift */,
 				22B5B16C2820787B0070B9FF /* SceneDelegate.swift */,
 				22B5B16E2820787B0070B9FF /* ViewController.swift */,
+				22F2F395282458A100FD6553 /* FriendsTableViewController.swift */,
+				22F2F39728246C9900FD6553 /* ImagesCollectionViewController.swift */,
+				22F2F399282470ED00FD6553 /* CommunitiesTableViewController.swift */,
+				22F2F39B2824710F00FD6553 /* GlobalCommunitiesTableViewController.swift */,
 				22B5B1702820787B0070B9FF /* Main.storyboard */,
 				22B5B1732820787E0070B9FF /* Assets.xcassets */,
 				22B5B1752820787E0070B9FF /* LaunchScreen.storyboard */,
@@ -102,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 22B5B1622820787B0070B9FF /* Build configuration list for PBXProject "HomeWork1" */;
+			buildConfigurationList = 22B5B1622820787B0070B9FF /* Build configuration list for PBXProject "HomeWork" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F2F39828246C9900FD6553 /* ImagesCollectionViewController.swift in Sources */,
 				22B5B16F2820787B0070B9FF /* ViewController.swift in Sources */,
 				22B5B16B2820787B0070B9FF /* AppDelegate.swift in Sources */,
+				22F2F396282458A100FD6553 /* FriendsTableViewController.swift in Sources */,
 				22B5B16D2820787B0070B9FF /* SceneDelegate.swift in Sources */,
+				22F2F39A282470ED00FD6553 /* CommunitiesTableViewController.swift in Sources */,
+				22F2F39C2824710F00FD6553 /* GlobalCommunitiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		22B5B1622820787B0070B9FF /* Build configuration list for PBXProject "HomeWork1" */ = {
+		22B5B1622820787B0070B9FF /* Build configuration list for PBXProject "HomeWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22B5B1792820787E0070B9FF /* Debug */,
