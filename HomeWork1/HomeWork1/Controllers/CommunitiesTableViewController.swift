@@ -8,7 +8,27 @@
 import UIKit
 
 class CommunitiesTableViewController: UITableViewController {
-
+    
+    @IBAction func addChosenCommunity(segue: UIStoryboardSegue){
+        if let sourceVC = segue.source as? GlobalCommunitiesTableViewController,
+           let indexPath = sourceVC.tableView.indexPathForSelectedRow {
+            let community = sourceVC.globalCommunities[indexPath.row]
+            
+            if !communities.contains(where: {$0.name == community.name}){
+                communities.append(community)
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    var communities = [
+        Community(imageCommunity: UIImage.init(systemName: "heart.text.square"), nameCommunity: "Community Name 1"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.text.square.fill"), nameCommunity: "Community Name 2"),
+        Community(imageCommunity: UIImage.init(systemName: "heart"), nameCommunity: "Community Name 3"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.fill"), nameCommunity: "Community Name 4"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.circle"), nameCommunity: "Community Name 5"),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,18 +48,21 @@ class CommunitiesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 100
+        return communities.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommunitiesIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommunityCell", for: indexPath) as? CommunityCell else {
+            preconditionFailure("Error")
+        }
         
-        cell.textLabel?.text = "Community №\(indexPath.row + 1)"
-        // Configure the cell...
+        cell.communityNameLabel.text = communities[indexPath.row].name
+        cell.communityImageView.image = communities[indexPath.row].image
 
         return cell
     }
+    
     
 
     /*
@@ -50,17 +73,18 @@ class CommunitiesTableViewController: UITableViewController {
     }
     */
 
-    /*    // Override to support editing the table view.
+        // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            communities.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
      
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

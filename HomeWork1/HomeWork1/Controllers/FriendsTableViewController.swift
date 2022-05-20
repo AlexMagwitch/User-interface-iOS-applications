@@ -8,6 +8,21 @@
 import UIKit
 
 class FriendsTableViewController: UITableViewController {
+    
+    
+    
+    let friends = [
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up"), nameFriend: "Name 1"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.fill"), nameFriend: "Name 2"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.circle"), nameFriend: "Name 3"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.circle.fill"), nameFriend: "Name 4"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.trianglebadge.exclamationmark"), nameFriend: "Name 5"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.down"), nameFriend: "Name 6"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.down.fill"), nameFriend: "Name 7"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.on.square"), nameFriend: "Name 8"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.up.on.square.fill"), nameFriend: "Name 9"),
+        Friend(imageFriend: UIImage.init(systemName: "square.and.arrow.down.on.square"), nameFriend: "Name 10"),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +47,29 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 100
+        return friends.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell else {
+            preconditionFailure("Error")
+        }
         
-        cell.textLabel?.text = "Friend №\(indexPath.row + 1)"
-        // Configure the cell...
+        cell.friendNameLabel.text = friends[indexPath.row].name
+        cell.friendImageView.image = friends[indexPath.row].image
 
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromFriendsToImages",
+           let destinationVC = segue.destination as? ImagesCollectionViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.title = friends[indexPath.row].name
+            destinationVC.chosenFriendImage = friends[indexPath.row].image
+            }
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class ImagesCollectionViewController: UICollectionViewController {
 
+    var chosenFriendImage = UIImage.init(systemName: "square.and.arrow.up")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,14 +45,15 @@ class ImagesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 102
+        return 10
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-        cell.backgroundColor = .systemPurple
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell else {
+            preconditionFailure("Error")
+        }
+        
+        cell.chosenFriendImageView.image = chosenFriendImage
         return cell
     }
 
