@@ -8,6 +8,19 @@
 import UIKit
 
 class GlobalCommunitiesTableViewController: UITableViewController {
+    
+    var globalCommunities = [
+        Community(imageCommunity: UIImage.init(systemName: "heart.text.square"), nameCommunity: "Community Name 1"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.text.square.fill"), nameCommunity: "Community Name 2"),
+        Community(imageCommunity: UIImage.init(systemName: "heart"), nameCommunity: "Community Name 3"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.fill"), nameCommunity: "Community Name 4"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.circle"), nameCommunity: "Community Name 5"),
+        Community(imageCommunity: UIImage.init(systemName: "heart.circle.fill"), nameCommunity: "Community Name 6"),
+        Community(imageCommunity: UIImage.init(systemName: "bolt.heart"), nameCommunity: "Community Name 7"),
+        Community(imageCommunity: UIImage.init(systemName: "bolt.heart.fill"), nameCommunity: "Community Name 8"),
+        Community(imageCommunity: UIImage.init(systemName: "eye"), nameCommunity: "Community Name 9"),
+        Community(imageCommunity: UIImage.init(systemName: "eye.fill"), nameCommunity: "Community Name 10"),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +41,17 @@ class GlobalCommunitiesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 100
+        return globalCommunities.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalCommunitiesIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GlobalCommunityCell", for: indexPath) as? GlobalCommunityCell else {
+            preconditionFailure("Error")
+        }
         
-        cell.textLabel?.text = "Global Community №\(indexPath.row + 1)"
-        // Configure the cell...
+        cell.globalCommunityNameLabel.text = globalCommunities[indexPath.row].name
+        cell.globalCommunityImageView.image = globalCommunities[indexPath.row].image
 
         return cell
     }
